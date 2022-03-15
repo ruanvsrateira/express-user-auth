@@ -32,4 +32,12 @@ User.validaLogin = async function(email, senha){
     return user;
 }
 
+User.userExist = async function(email) {
+    const exist = await UserModel.findOne({
+        email: email
+    });
+
+    exist ? true : false
+}
+
 module.exports = User;

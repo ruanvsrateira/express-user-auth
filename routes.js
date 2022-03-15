@@ -10,7 +10,7 @@ const loginController = require('./src/controllers/loginController');
 const Middlewares = require('./src/middlewares');
 
 route.get('/auth/cadastro', cadastroController.index);
-route.post('/auth/cadastro/register', cadastroController.createNewUser);
+route.post('/auth/cadastro/register', Middlewares.emailexist, cadastroController.createNewUser);
 
 route.get('/auth/login', loginController.index);
 route.post('/auth/login/logged', async function(req, res){
